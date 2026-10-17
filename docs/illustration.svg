@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Viewport Shifter: moving the game's center off the bezel</title>
+  <rect width="800" height="440" rx="14" fill="#0f172a"/>
+
+  <!-- Before -->
+  <text x="40" y="42" font-size="18" font-weight="600" fill="#e2e8f0">Before: the crosshair sits on the bezel</text>
+  <rect x="340" y="64" width="170" height="100" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  <rect x="518" y="64" width="170" height="100" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  <text x="352" y="82" font-size="12" fill="#94a3b8">Screen 1</text>
+  <text x="530" y="82" font-size="12" fill="#94a3b8">Screen 2</text>
+  <g stroke="#f87171" stroke-width="2.5" stroke-linecap="round">
+    <line x1="503" y1="114" x2="525" y2="114"/>
+    <line x1="514" y1="103" x2="514" y2="125"/>
+  </g>
+  <text x="514" y="188" font-size="13" fill="#f87171" text-anchor="middle">crosshair is lost in the gap</text>
+
+  <!-- Arrow -->
+  <path d="M425 202 L425 226 M417 218 L425 228 L433 218" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- After -->
+  <text x="40" y="262" font-size="18" font-weight="600" fill="#e2e8f0">After (Left mode): the center moves onto Screen 1</text>
+  <!-- off-screen part of the window -->
+  <rect x="162" y="284" width="178" height="100" fill="#1d4ed8" fill-opacity="0.15" stroke="#60a5fa" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="251" y="331" font-size="13" fill="#93c5fd" text-anchor="middle">off-screen</text>
+  <text x="251" y="348" font-size="12" fill="#93c5fd" text-anchor="middle">(extra width)</text>
+  <!-- screens -->
+  <rect x="340" y="284" width="170" height="100" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  <rect x="518" y="284" width="170" height="100" rx="6" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  <text x="352" y="302" font-size="12" fill="#94a3b8">Screen 1</text>
+  <text x="530" y="302" font-size="12" fill="#94a3b8">Screen 2</text>
+  <!-- game window outline: centered on Screen 1 (x=425), spans to the right edge of Screen 2 -->
+  <rect x="162" y="284" width="526" height="100" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+  <g stroke="#4ade80" stroke-width="2.5" stroke-linecap="round">
+    <line x1="414" y1="334" x2="436" y2="334"/>
+    <line x1="425" y1="323" x2="425" y2="345"/>
+  </g>
+  <text x="425" y="408" font-size="13" fill="#4ade80" text-anchor="middle">crosshair is centered on a screen</text>
+  <text x="425" y="428" font-size="12" fill="#93c5fd" text-anchor="middle">blue outline = borderless game window (wider than the desktop)</text>
+</svg>

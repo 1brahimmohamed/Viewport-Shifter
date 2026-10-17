@@ -6,6 +6,8 @@ If you join two screens into one wide display with NVIDIA Surround, or stretch a
 
 Windows only.
 
+![Before: the crosshair sits on the bezel between two screens. After: the game window is moved so the crosshair is centered on Screen 1.](docs/illustration.svg)
+
 ## How it works
 
 A game draws its crosshair at the center of **its own window**. Viewport Shifter makes the game window borderless and places it so that its center lands on the screen you chose. Part of the window then sits off the edge of the desktop.
