@@ -1,0 +1,45 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="Viewport Shifter"
+           Manufacturer="Ibrahim Abdelazim"
+           Version="$(Version)"
+           UpgradeCode="5b0b7c1e-3f64-4d3e-9a52-7c1d2f8e6a41"
+           Scope="perUser">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Viewport Shifter is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="ProgramsDir" Name="Programs">
+        <Directory Id="INSTALLFOLDER" Name="Viewport Shifter">
+          <Component Id="MainExe" Guid="*">
+            <File Id="ViewportShifterExe" Source="$(ExePath)" KeyPath="yes" />
+          </Component>
+          <Component Id="LicenseFile" Guid="*">
+            <File Id="LicenseTxt" Name="LICENSE.txt" Source="$(LicensePath)" KeyPath="yes" />
+          </Component>
+          <Component Id="CleanupInstallFolder" Guid="*">
+            <RemoveFolder Id="RemoveInstallFolder" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="Software\ViewportShifter" Name="InstallFolder" Type="integer" Value="1" KeyPath="yes" />
+          </Component>
+        </Directory>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="StartMenuShortcut" Guid="*">
+        <Shortcut Id="AppShortcut"
+                  Name="Viewport Shifter"
+                  Description="Move the center of your game off the monitor bezel"
+                  Target="[INSTALLFOLDER]viewport-shifter.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Root="HKCU" Key="Software\ViewportShifter" Name="Shortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <Feature Id="Main" Title="Viewport Shifter" Level="1">
+      <ComponentRef Id="MainExe" />
+      <ComponentRef Id="LicenseFile" />
+      <ComponentRef Id="CleanupInstallFolder" />
+      <ComponentRef Id="StartMenuShortcut" />
+    </Feature>
+  </Package>
+</Wix>
